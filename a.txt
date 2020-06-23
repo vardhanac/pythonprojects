@@ -1,0 +1,49 @@
+def file():
+   file = open('python.txt','r')
+   line = file.readlines()
+   count=0
+   for i in line:
+       count = count + 1
+   print("Total number of lines:", count)
+   file.close()
+
+
+def exception1():
+    try:
+        filename = open('python.txt', 'r')
+        contents = filename.read()
+        if not contents:
+            print("File is empty")
+        filename.close()
+    except IOError as e:
+        print(str(e))
+
+
+def exception2():
+    try:
+        filename=open('python.txt','r')
+        if not filename.endswith(".txt"):
+           print("Wrong file extension")
+        filename.close()
+    except IOError as e:
+        print(str(e))
+
+file()
+exception1()
+exception2()
+
+
+
+Assignment 2:
+
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv(r'C:\Users\HP\Documents\workshop.csv')
+df.head()
+print(df)
+df['bmi'] = df.Weights / df.Heights
+print(df)
+df.plot()
+plt.savefig("workshop.pdf")
+plt.show()
+
